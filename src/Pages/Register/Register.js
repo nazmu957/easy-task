@@ -1,26 +1,45 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Register = () => {
-    const { createUser} = useContext(AuthContext);
-    const handleSignUp = event => {
+    const [error, setError ] = useState('');
+     const [accepted, setAccepted] = useState(false);
+    const {createUser,updateUserProfile} = useContext(AuthContext);
+   
+    const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
        
-        createUser(email, password)
-        .then(result => {
+         createUser(email, password)
+        .then( result => {
             const user = result.user;
             console.log(user);
+            setError('');
+            form.reset();
+            handleUpdateUserProfile(name );
         })
-        .catch(err => console.error(err));
+        .catch(e => {
+            console.error(e);
+            setError(e.message);
+        });
+    }
+    const handleUpdateUserProfile = (name) =>{
+        const profile ={
+            displayName: name,
+            
+        }
+        updateUserProfile(profile)
+        .then(() =>{})
+        .catch(error => console.error(error));
     }
     return (
        <div>
       
-      <form onSubmit={handleSignUp} className='text-center my-5 py-5 bg-red-100 mx-60'>
+      <form onSubmit={handleSubmit} className='text-center my-5 py-5 bg-red-100 mx-60'>
           <h2 className='py-7' >Please Register Now</h2>
         <input className='p-5 my-5' type="text" name="name" id="" placeholder="Your Name" />
         <br/>
