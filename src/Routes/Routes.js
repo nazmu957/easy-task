@@ -2,7 +2,9 @@ import { createBrowserRouter } from 'react-router-dom'
 import AddTask from '../Pages/AddTask/AddTask'
 import CompletedTask from '../Pages/CompletedTask/CompletedTask'
 import Home from '../Pages/Home/Home'
+import Login from '../Pages/Login/Login'
 import MyTask from '../Pages/MyTask/MyTask'
+import Register from '../Pages/Register/Register'
 import UpdateTask from '../Pages/UpdateTask/UpdateTask'
 
 export const routes = createBrowserRouter([
@@ -11,27 +13,37 @@ export const routes = createBrowserRouter([
     element: <Home></Home>,
   },
   {
+    path: '/login',
+    element: <Login></Login>,
+  },
+  {
+    path: '/register',
+    element: <Register></Register>,
+  },
+  {
     path: '/addTask',
     element: <AddTask></AddTask>,
   },
   {
     path: '/myTask',
     element: <MyTask></MyTask>,
-    loader: () => fetch('http://localhost:5000/addTask'),
+    loader: () => fetch('https://easy-task-server-inky.vercel.app/addTask'),
   },
   {
     path: '/update/:id',
     element: <UpdateTask></UpdateTask>,
-    loader: ({ params }) => fetch(`http://localhost:5000/addTask/${params.id}`),
+    loader: ({ params }) =>
+      fetch(`https://easy-task-server-inky.vercel.app/addTask/${params.id}`),
   },
   {
     path: '/complete/:id',
     element: <CompletedTask></CompletedTask>,
-    loader: ({ params }) => fetch(`http://localhost:5000/addTask`),
+    loader: ({ params }) =>
+      fetch(`https://easy-task-server-inky.vercel.app/addTask`),
   },
   {
     path: '/completedTask',
     element: <CompletedTask></CompletedTask>,
-    loader: () => fetch('http://localhost:5000/addTask'),
+    loader: () => fetch('https://easy-task-server-inky.vercel.app/addTask'),
   },
 ])

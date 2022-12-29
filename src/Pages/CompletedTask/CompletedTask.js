@@ -13,7 +13,7 @@ function CompletedTask() {
     const agree = window.confirm('Are you sure you want to delete?')
 
     if (agree) {
-      fetch(`http://localhost:5000/addTask/${task}`, {
+      fetch(`https://easy-task-server-inky.vercel.app/addTask/${task}`, {
         method: 'DELETE',
       })
         .then((res) => res.json())
@@ -32,18 +32,22 @@ function CompletedTask() {
 
   return (
     <div>
-        <Navbar></Navbar>
-        <div className='bg-red-100 p-10 text-center'>
-       
-      <div className="text-center font-bold py-5 ">All Completed Tasks</div>
-      {displayTasks.map((task, index) => (
-        <p className='py-5 font-bold' key={index}>
-          {task.taskList}
+      <Navbar></Navbar>
+      <div className="bg-red-100 p-10 text-center">
+        <div className="text-center font-bold py-5 ">All Completed Tasks</div>
+        {displayTasks.map((task, index) => (
+          <p className="py-5 font-bold" key={index}>
+            {task.taskList}
 
-          <button className="bg-red-400 mx-2 px-2 rounded" onClick={() => handleDelete(task._id)}>Delete</button>
-        </p>
-      ))}
-    </div>
+            <button
+              className="bg-red-400 mx-2 px-2 rounded"
+              onClick={() => handleDelete(task._id)}
+            >
+              Delete
+            </button>
+          </p>
+        ))}
+      </div>
     </div>
   )
 }
