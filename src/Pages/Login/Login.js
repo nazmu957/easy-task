@@ -7,6 +7,17 @@ import Navbar from '../Navbar/Navbar';
 const Login = () => {
     const {providerLogin} = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
+
+
+     const handleGoogleSignIn = () =>{
+        providerLogin(googleProvider)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+            navigate('/');
+        })
+        .catch(error => console.error(error))
+    }
   
     const [error, setError] = useState('');
     const {signIn} = useContext(AuthContext);
@@ -51,6 +62,15 @@ const Login = () => {
         >
           Login
         </button>
+        <br/>
+        <button
+        onClick={handleGoogleSignIn}
+          className="font-bold bg-cyan-300 px-4 py-2 rounded"
+          type="submit"
+        >
+          Google
+        </button>
+       
       </form>
     </div>
   )

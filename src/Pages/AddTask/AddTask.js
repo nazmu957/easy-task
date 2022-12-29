@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import Navbar from '../Navbar/Navbar'
+import { Link } from 'react-router-dom'
+
 
 const AddTask = () => {
   const handleAddTask = (event) => {
@@ -31,6 +32,7 @@ const AddTask = () => {
   }
   return (
     <div>
+      
       <div className="grid  grid-cols-1 bg-red-100 p-20">
         <h1 className="text-center font-bold py-5">Add Your Task</h1>
         <form onSubmit={handleAddTask}>
@@ -47,6 +49,16 @@ const AddTask = () => {
           >
             Enter
           </button>
+          <Link to='/details'>
+          
+          <button
+            className="font-bold bg-red-300 px-4 py-2 rounded"
+            type="submit"
+          >
+            details
+          </button>
+          
+          </Link>
         </form>
       </div>
     </div>
