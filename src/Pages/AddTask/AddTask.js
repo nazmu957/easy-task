@@ -32,7 +32,7 @@ const AddTask = () => {
     //console.log(newList);
   }
   return (
-    <div className='h-screen'>
+    <div className='h-screen '>
       
       <div className="grid  grid-cols-1 bg-red-100 p-20 lg:m-32 rounded " >
         <h1 className="text-center font-bold py-5 text-2xl">Welcome To Easy Task To Make Your Life Easy</h1>
