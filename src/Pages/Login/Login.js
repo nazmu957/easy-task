@@ -47,16 +47,17 @@ const Login = () => {
   return (
     <div className=''>
       <Navbar></Navbar>
-      <form onSubmit={handleSubmit} className='text-center  my-5 py-5 bg-red-100 mx-60'>
-          <h2 className='py-7' >Please login</h2>
-        <input className='p-5 my-5' type="email" name="email" required id="" placeholder="Your Email" />
+      <form onSubmit={handleSubmit} className='text-center  my-5 py-5 bg-red-100 lg:mx-96 rounded mt-20 mx-3'>
+          <h2 className='py-7 font-bold' >Please login</h2>
+        <input className='p-3 my-5 rounded' type="email" name="email" required id="" placeholder="Your Email" />
         <br />
-        <input className='p-5 my-5' type="password" required name="password" id="" placeholder="Yor Password" />
+        <input className='p-3 my-5 rounded' type="password" required name="password" id="" placeholder="Yor Password" />
         
         <br />
-        <Link to='/register'>Register Now</Link>
+        <Link to='/register'><button className='py-3'>Are You New?Please Register</button></Link>
         
-        <button
+        <div className="">
+          <button
           className="font-bold bg-red-300 px-4 py-2 rounded"
           type="submit"
         >
@@ -65,11 +66,12 @@ const Login = () => {
         <br/>
         <button
         onClick={handleGoogleSignIn}
-          className="font-bold bg-cyan-300 px-4 py-2 rounded"
+          className="font-bold bg-cyan-300 px-10 py-3 mt-5 rounded"
           type="submit"
         >
-          Google
+          Log in with Google
         </button>
+        </div>
        
       </form>
     </div>

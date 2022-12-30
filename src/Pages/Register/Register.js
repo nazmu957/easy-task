@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
-
+import Navbar from '../Navbar/Navbar';
 const Register = () => {
     const [error, setError ] = useState('');
      const [accepted, setAccepted] = useState(false);
@@ -37,24 +37,29 @@ const Register = () => {
         .catch(error => console.error(error));
     }
     return (
-       <div>
-      
-      <form onSubmit={handleSubmit} className='text-center my-5 py-5 bg-red-100 mx-60'>
-          <h2 className='py-7' >Please Register Now</h2>
-        <input className='p-5 my-5' type="text" name="name" id="" placeholder="Your Name" />
+       <div className=''>
+      <Navbar></Navbar>
+      <form onSubmit={handleSubmit} className='text-center rounded my-5 py-5 bg-red-100 mt-28 lg:mx-96 mx-3'>
+          <h2 className='py-7 font-bold ' >Please Register Now</h2>
+        <input className='p-3 my-5' type="text" name="name" id="" placeholder="Your Name" />
         <br/>
-        <input className='p-5 my-5' type="email" name="email" id="" placeholder="Your Email" />
+        <input className='p-3 my-5' type="email" name="email" id="" placeholder="Your Email" />
         <br />
-        <input className='p-5 my-5' type="password" name="password" id="" placeholder="Your Password" />
+        <input className='p-3 my-5' type="password" name="password" id="" placeholder="Your Password" />
         <br />
-        <Link to='/login'>Already have ana account?</Link>
+        
         <button
           className="font-bold bg-red-300 px-4 py-2 rounded"
           type="submit"
         >
           Register
         </button>
+        <div className="py-3">
+          <Link to='/login'>Already have an account?</Link>
+        </div>
       </form>
+
+      
     </div>
     );
 };

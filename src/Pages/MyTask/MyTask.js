@@ -44,13 +44,13 @@ const MyTask = () => {
   }
 
   return (
-    <div>
+    <div className='h-screen ' >
       <Navbar></Navbar>
       <h2 className="text-center font-bold py-5">
-        My Task {displayTasks.length}{' '}
+       My Total Tasks : {displayTasks.length}{' '}
       </h2>
 
-      <div className="grid  grid-cols-1  bg-red-100 p-20 text-center">
+      <div className="grid  grid-cols-1  bg-red-100 p-20 text-center lg:mx-28 mx-3 lg:mt-32  ">
         {displayTasks.map((task) => (
           <p className="font-bold my-5" key={task._id}>
             {task.taskList}

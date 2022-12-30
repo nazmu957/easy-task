@@ -31,34 +31,36 @@ const AddTask = () => {
     //console.log(newList);
   }
   return (
-    <div>
+    <div className='h-screen'>
       
-      <div className="grid  grid-cols-1 bg-red-100 p-20">
-        <h1 className="text-center font-bold py-5">Add Your Task</h1>
-        <form onSubmit={handleAddTask}>
+      <div className="grid  grid-cols-1 bg-red-100 p-20 lg:m-32 rounded " >
+        <h1 className="text-center font-bold py-5 text-2xl">Welcome To Easy Task To Make Your Life Easy</h1>
+        <form className='pt-10 ' onSubmit={handleAddTask}>
           {/* <input type="text" name="text" id="" placeholder="Give your task" /> */}
           <textarea
             name="description"
-            className="textarea w-full "
+            className="textarea w-full text-center py-2 rounded"
             placeholder="Add Your Task"
             required
           ></textarea>
-          <button
-            className="font-bold bg-red-300 px-4 py-2 rounded"
+          <div className='flex justify-center pt-5'> 
+            <button
+            className="font-bold bg-red-300 px-4 py-2  rounded"
             type="submit"
           >
-            Enter
+            Submit
           </button>
           <Link to='/details'>
           
           <button
-            className="font-bold bg-red-300 px-4 py-2 rounded"
+            className="font-bold bg-red-300 px-4 py-2 ml-5 rounded"
             type="submit"
           >
-            details
+            Details
           </button>
           
           </Link>
+          </div>
         </form>
       </div>
     </div>

@@ -31,9 +31,9 @@ function CompletedTask() {
   }
 
   return (
-    <div>
+    <div className='h-screen'>
       <Navbar></Navbar>
-      <div className="bg-red-100 p-10 text-center">
+      <div className="bg-red-100 p-10 text-center lg:mx-36 mx-3 mt-20">
         <div className="text-center font-bold py-5 ">All Completed Tasks</div>
         {displayTasks.map((task, index) => (
           <p className="py-5 font-bold" key={index}>

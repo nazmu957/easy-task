@@ -36,6 +36,7 @@ export const routes = createBrowserRouter([
   {
     path: '/details',
     element: (<PrivateRoute><Details></Details></PrivateRoute>),
+    loader: () => fetch('https://easy-task-server-inky.vercel.app/addTask'),
   },
   {
     path: '/update/:id',
