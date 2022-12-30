@@ -45,6 +45,7 @@ function CompletedTask() {
             >
               Delete
             </button>
+            <input className='text-center' type="text" name="" id="" placeholder="Completed"/>
           </p>
         ))}
       </div>

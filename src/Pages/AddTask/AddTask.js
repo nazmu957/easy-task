@@ -7,7 +7,8 @@ const AddTask = () => {
     event.preventDefault()
     const form = event.target
     const taskList = form.description.value
-    console.log(taskList)
+    const img = form.img.file
+    console.log(taskList,img)
     const newList = {
       taskList,
       status: 'uncompleted',
@@ -43,6 +44,7 @@ const AddTask = () => {
             placeholder="Add Your Task"
             required
           ></textarea>
+          
           <div className='flex justify-center pt-5'> 
             <button
             className="font-bold bg-red-300 px-4 py-2  rounded"
